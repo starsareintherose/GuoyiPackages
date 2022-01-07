@@ -3,8 +3,8 @@
 from lilaclib import *
 
 def pre_build():
-    aur_pre_build()
-    for line in edit_file('PKGBUILD'):
-        if line.startswith('pkgdesc'):
-            line = 'pkgdesc="Clover Simplified pinyin input for rime"'
-        print(line)
+  update_pkgver_and_pkgrel(_G.newver.lstrip('v'))
+
+def post_build():
+  git_add_files('PKGBUILD')
+  git_commit()
