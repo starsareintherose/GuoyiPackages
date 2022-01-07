@@ -1,7 +1,7 @@
 # Maintainer: Mark Wagie <mark dot wagie at tutanota dot com>
 pkgname=kooha
 pkgver=2.0.1
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple screen recorder for GNOME"
 arch=('x86_64')
 url="https://apps.gnome.org/app/io.github.seadve.Kooha"

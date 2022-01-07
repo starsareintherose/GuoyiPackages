@@ -2,7 +2,7 @@
 
 pkgname=graphite-gtk-theme
 _reponame='Graphite-gtk-theme'
-pkgver=2021.11.26.r5.gea5abc7
+pkgver=2021.11.26.r37.g78e5421
 pkgrel=1
 pkgdesc='Graphite gtk theme'
 arch=("any")
