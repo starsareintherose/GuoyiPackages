@@ -9,7 +9,7 @@ url='https://github.com/vim-pandoc/vim-pandoc'
 license=('MIT')
 depends=('vim')
 
-source=('git://github.com/vim-pandoc/vim-pandoc.git')
+source=('git+https://github.com/vim-pandoc/vim-pandoc.git')
 sha512sums=('SKIP')
 
 pkgver() {
