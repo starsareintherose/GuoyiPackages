@@ -8,3 +8,4 @@ update_on:
     use_max_tag: true
 repo_depends:
   - python-sphinx
+  - python-humanfriendly
