@@ -4,10 +4,6 @@ repo_depends:
 update_on:
   - source: github
     github: Valloric/YouCompleteMe
-  - source: aur
-    aur: vim-youcompleteme-git
-  - alias: boost
-  - alias: clang
 
 maintainers:
   - github: starsareintherose
