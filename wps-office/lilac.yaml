@@ -4,5 +4,5 @@ maintainers:
 build_prefix: extra-x86_64
 update_on:
   - source: regex
-    url: "https://linux.wps.cn/"
-    regex: '(\d+.\d+.\d+.\d+)'
+    url: https://linux.wps.cn/
+    regex: <p class="banner_txt">(\d+.\d+.\d+.\d+)</p>
