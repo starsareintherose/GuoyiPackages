@@ -6,7 +6,7 @@
 
 pkgname=ocrmypdf
 pkgver=13.2.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A tool to add an OCR text layer to scanned PDF files, allowing them to be searched"
 url="https://github.com/jbarlow83/OCRmyPDF"
 arch=('any')
