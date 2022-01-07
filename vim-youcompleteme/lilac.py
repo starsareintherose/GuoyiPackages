@@ -3,6 +3,8 @@
 from lilaclib import *
 
 def pre_build():
-    aur_pre_build()
-    run_cmd(['sh', '-c', 'sed \'/vim-plugins/d\' -i PKGBUILD'])
-    run_cmd(['sh', '-c', 'sed \'s/_use_system_clang="OFF"/_use_system_clang="ON"/\' -i PKGBUILD'])
+  update_pkgver_and_pkgrel(_G.newver.lstrip('v'))
+
+def post_build():
+  git_add_files('PKGBUILD')
+  git_commit()
