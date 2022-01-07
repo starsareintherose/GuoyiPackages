@@ -1,0 +1,10 @@
+build_prefix: extra-x86_64
+maintainers:
+  - github: starsareintherose
+    email: starsareintherose@outlook.com
+repo_depends:
+  - archlinux-java-run
+update_on:
+  - source: github
+    github: JabRef/jabref
+    use_latest_release: true

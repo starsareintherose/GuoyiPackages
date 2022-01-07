@@ -1,0 +1,24 @@
+# Maintainer: Felix Bühler <account at buehler dot de>
+
+pkgname=nautilus-open-any-terminal
+pkgver=0.2.15
+pkgrel=1
+pkgdesc="context-menu entry for opening other terminal in nautilus"
+arch=(any)
+url="https://github.com/Stunkymonkey/nautilus-open-any-terminal"
+license=(GPL3)
+depends=(python-nautilus)
+makedepends=(git python-setuptools)
+source=("https://github.com/Stunkymonkey/nautilus-open-any-terminal/archive/refs/tags/${pkgver}.zip")
+sha512sums=("SKIP")
+
+build() {
+  cd $pkgname-$pkgver
+  python3 setup.py build
+}
+
+package() {
+  cd $pkgname-$pkgver
+  python3 setup.py install --root="$pkgdir" --optimize=1
+}
+
