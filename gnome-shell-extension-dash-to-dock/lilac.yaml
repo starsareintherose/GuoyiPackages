@@ -6,4 +6,4 @@ pre_build: vcs_update
 
 update_on:
 - source: github
-  github: LinusDierheimer/fastfetch
+  github: micheleg/dash-to-dock
