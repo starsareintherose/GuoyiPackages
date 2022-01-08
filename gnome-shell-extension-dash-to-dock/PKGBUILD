@@ -18,8 +18,6 @@ source=("https://github.com/micheleg/dash-to-dock/archive/refs/tags/extensions.g
 sha256sums=('SKIP')
 
 build() {
-  export SASS=sassc
-
   cd "${srcdir}"/${_pkgname}${pkgver}
   export SASS=sassc
   make
