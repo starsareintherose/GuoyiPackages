@@ -4,9 +4,10 @@
 # Contributor: Jove Yu <yushijun110 [at] gmail.com>
 # Contributor: Ariel AxionL <axionl at aosc dot io>
 
-pkgname='wps-office'
+pkgname=wps-office
+_pkgname=wps-office-cn
 pkgver=11.1.0.10702
-pkgrel=3
+pkgrel=2
 pkgdesc="Kingsoft Office (WPS Office) CN version - an office productivity suite"
 arch=('x86_64' 'aarch64')
 license=('custom')
@@ -51,7 +52,7 @@ package_wps-office-cn() {
 
     install -d "${pkgdir}/usr/lib"
     cp -r office6 "${pkgdir}/usr/lib"
-    install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
+    install -Dm644 -t "${pkgdir}/usr/share/licenses/${_pkgname}" office6/mui/default/*.html
     rm -r "${pkgdir}/usr/lib/office6/mui/en_US/resource/help"
     rm -r "${pkgdir}/usr/lib/office6/mui/zh_CN"
 
@@ -84,7 +85,7 @@ package_wps-office-mui-zh-cn() {
     cp -r zh_CN "${pkgdir}/usr/lib/office6/mui"
 
     cd "${srcdir}/opt/kingsoft/wps-office/"
-    install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
+    install -Dm644 -t "${pkgdir}/usr/share/licenses/${_pkgname}" office6/mui/default/*.html
 }
 
 package_wps-office-mime-cn() {
@@ -98,5 +99,5 @@ package_wps-office-mime-cn() {
     cp -r mime/* "${pkgdir}/usr/share/mime"
 
     cd "${srcdir}/opt/kingsoft/wps-office/"
-    install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
+    install -Dm644 -t "${pkgdir}/usr/share/licenses/${_pkgname}" office6/mui/default/*.html
 }
