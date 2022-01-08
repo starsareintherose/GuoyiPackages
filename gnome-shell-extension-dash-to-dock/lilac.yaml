@@ -5,5 +5,6 @@ maintainers:
 pre_build: vcs_update
 
 update_on:
-- source: github
-  github: micheleg/dash-to-dock
+- source: regex
+  regex: extensions.gnome.org-v(\d+)
+  url: https://github.com/micheleg/dash-to-dock/tags
