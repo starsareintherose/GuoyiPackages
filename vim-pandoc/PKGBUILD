@@ -8,7 +8,7 @@ arch=('any')
 url='https://github.com/vim-pandoc/vim-pandoc'
 license=('MIT')
 depends=('vim')
-
+makedepends=('git')
 source=('git+https://github.com/vim-pandoc/vim-pandoc.git')
 sha512sums=('SKIP')
 
