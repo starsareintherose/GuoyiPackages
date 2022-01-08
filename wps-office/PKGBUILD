@@ -4,8 +4,8 @@
 # Contributor: Jove Yu <yushijun110 [at] gmail.com>
 # Contributor: Ariel AxionL <axionl at aosc dot io>
 
-pkgbase=wps-office-cn
-pkgname=('wps-office' 'wps-office-cn' 'wps-office-mime-cn' 'wps-office-mui-zh-cn')
+pkgbase=wps-office
+pkgname=('wps-office' 'wps-office-mime-cn' 'wps-office-mui-zh-cn')
 _pkgname="${pkgname}"
 pkgver=11.1.0.10702
 pkgrel=2
@@ -35,7 +35,7 @@ prepare() {
     done
 }
 
-package_wps-office-cn() {
+package_wps-office() {
     depends=('fontconfig' 'xorg-mkfontdir' 'libxrender' 'gtk2' 'desktop-file-utils' 'shared-mime-info' 'xdg-utils' 'glu' 'openssl-1.0' 'sdl2' 'libpulse' 'hicolor-icon-theme' 'libxss' 'sqlite' 'libtool' 'libxslt' 'qt5-base')
     optdepends=('cups: for printing support'
                 'libjpeg-turbo: JPEG image codec support'
