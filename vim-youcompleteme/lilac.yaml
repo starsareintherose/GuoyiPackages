@@ -4,7 +4,9 @@ repo_depends:
 update_on:
   - source: github
     github: Valloric/YouCompleteMe
-
+  - alias: boost
+  - alias: clang
+  - alias: python
 maintainers:
   - github: starsareintherose
     email: starsareintherose@outlook.com
