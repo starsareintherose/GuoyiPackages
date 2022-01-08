@@ -13,7 +13,7 @@ arch=('any')
 url="https://micheleg.github.io/dash-to-dock/"
 license=('GPL')
 depends=('gnome-shell')
-makedepends=('intltool' 'gettext' 'git')
+makedepends=('sassc' 'intltool' 'gettext' 'git')
 source=("https://github.com/micheleg/dash-to-dock/archive/refs/tags/extensions.gnome.org-v${pkgver}.zip")
 sha256sums=('SKIP')
 
@@ -21,6 +21,7 @@ build() {
   export SASS=sassc
 
   cd "${srcdir}"/${_pkgname}${pkgver}
+  export SASS=sassc
   make
 }
 
