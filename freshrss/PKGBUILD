@@ -2,7 +2,7 @@
 
 pkgname=freshrss
 pkgver=1.19.1
-pkgrel=1
+pkgrel=2
 pkgdesc='A free, self-hostable aggregator…'
 arch=('any')
 url='http://freshrss.org/'
