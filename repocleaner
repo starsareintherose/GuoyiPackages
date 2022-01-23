@@ -11,7 +11,7 @@ from typing import Set, List, Dict, Tuple
 import archpkg
 
 repo_path: Path = Path('/home/guoyi/Repo')
-gitrepo_path: Path = Path('/home/guoyi/Packages').expanduser()
+gitrepo_path: Path = Path('/home/guoyi/GuoyiPackages').expanduser()
 max_keep: int = 1
 DRY_RUN: bool = False
 
