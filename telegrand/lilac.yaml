@@ -12,3 +12,4 @@ update_on:
     github: melix99/telegrand
 repo_depends:
   - libtd-dev
+time_limit_hours: 6
