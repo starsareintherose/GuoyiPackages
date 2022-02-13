@@ -2,7 +2,7 @@
 _basename=notekit
 pkgname="${_basename}"
 pkgver=r213.fa9aeec
-pkgrel=1
+pkgrel=2
 pkgdesc="A GTK3 hierarchical markdown notetaking application with tablet support."
 arch=("x86_64" "aarch64" "i686" "armv7h" "s390x")
 url="https://github.com/blackhole89/notekit"
