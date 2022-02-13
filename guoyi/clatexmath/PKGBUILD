@@ -19,7 +19,7 @@
 _basename=clatexmath
 pkgname="${_basename}"
 pkgver=r484.dc32540
-pkgrel=3
+pkgrel=4
 pkgdesc="A dynamic, cross-platform, and embeddable LaTeX rendering library"
 arch=("x86_64" "aarch64" "i686" "armv7h" "s390x")
 url="https://github.com/NanoMichael/cLaTeXMath"
