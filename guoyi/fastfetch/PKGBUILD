@@ -1,7 +1,7 @@
 # Maintainer: Linus Dierheimer <Linus@Dierheimer.de>
 pkgname=fastfetch
-pkgver=r585.451848f
-pkgrel=2
+pkgver=r586.d6ae323
+pkgrel=1
 pkgdesc="Like neofetch, but much faster because written in c"
 arch=('x86_64')
 url="https://github.com/LinusDierheimer/fastfetch"
