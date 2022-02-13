@@ -2,7 +2,7 @@
 
 pkgname=rime-symbols
 pkgver=1.0.0
-pkgrel=3
+pkgrel=4
 pkgdesc="Chinese to symbols support for rime"
 arch=('any')
 url="https://github.com/fkxxyz/rime-symbols"
