@@ -11,8 +11,9 @@ depends=("fontconfig" "clatexmath" "gtkmm3" "gtksourceviewmm>=3.18" "jsoncpp" "z
 makedepends=("git" "meson")
 provides=("${_basename}")
 conflicts=("${_basename}" "${_basename}-git")
-source=("${_basename}::git+https://github.com/blackhole89/notekit.git")
-sha256sums=('SKIP')
+source=("${_basename}::git+https://github.com/blackhole89/notekit.git" "stylesheet.css")
+sha256sums=('SKIP'
+            '06c70fa0f1bb52ae9f7880576d12a05d1af4376f9972cf61ec723bd2d168944e')
 
 pkgver() {
 	cd "${srcdir}/${_basename}"
@@ -32,4 +33,6 @@ build() {
 package() {
 	cd "${srcdir}/${_basename}"
 	DESTDIR="${pkgdir}" meson install -C _build
+	cd "${srcdir}"
+	install -Dm 755 stylesheet.css $pkgdir/usr/share/notekit/data/stylesheet.css
 }

@@ -1,0 +1,19 @@
+.notekit .sidebar .view, .notekit .sidebar iconview,
+ .notekit .sidebar row {
+    border-color: rgba(186, 195, 207, 0.6); 
+ }
+
+.notekit .sidebar { background-color: rgba(77,77,77,0.9); }
+
+#mainView {
+    font: 20px Charter, Bitstream Charter, Noto Serif, Noto Serif CJK JP, Noto Naskh Arabic, serif;
+    padding-top: 25px;
+    padding-right: 16px;
+    padding-bottom: 25px;
+}
+
+#mainViewScroll {
+    background: red;
+    border-color: blue;
+}
+
