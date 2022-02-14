@@ -3,7 +3,7 @@
 _pkgname=telegrand
 pkgname=telegrand
 pkgver=r681.4581353
-pkgrel=1
+pkgrel=2
 pkgdesc='A Telegram client for GNOME'
 arch=(x86_64)
 url='https://github.com/melix99/telegrand'
