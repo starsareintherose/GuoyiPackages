@@ -3,21 +3,23 @@
 
 pkgname=wallabag
 pkgver=2.4.2
-pkgrel=3
+pkgrel=4
 pkgdesc='Self hostable application for saving web pages'
 arch=('any')
 url='http://www.wallabag.org/'
 license=('MIT')
 makedepends=('systemd')
 depends=(
-    'php7>=7.2'
+    'php7'
     'php7-gd'
     'php7-tidy'
+    'php7-intl'
     'pcre'
 )
 optdepends=(
     'php7-pgsql: For postgres storage'
     'php7-sqlite: For sqlite storage'
+    'php7-fpm:  to run in FastCGI process manager'
     'rabbitmq: For async import'
     'redis: For async import'
 )
@@ -33,7 +35,7 @@ backup=("etc/webapps/${pkgname}/parameters.yml"
 package() {
     cd "${pkgdir}"
     mkdir -p usr/share/webapps
-    mv "${srcdir}/${pkgver}" "usr/share/webapps/${pkgname}"
+    mv "${srcdir}/${pkgname}-${pkgver}" "usr/share/webapps/${pkgname}"
 
     WALLABAG_CONF_DIR="${pkgdir}/usr/share/webapps/${pkgname}/app/config"
 
