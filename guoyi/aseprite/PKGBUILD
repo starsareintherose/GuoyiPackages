@@ -32,6 +32,7 @@ depends=(
 	libxcursor
 	tinyxml
 	zlib
+	fontconfig
 		)
 makedepends=(# "Meta" dependencies
              cmake ninja git python
