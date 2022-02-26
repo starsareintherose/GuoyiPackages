@@ -1,0 +1,8 @@
+build_prefix: extra-x86_64
+maintainers:
+  - github: starsareintherose
+    email: starsareintherose@outlook.com
+update_on:
+  - source: regex
+    regex:  href="/aseprite/aseprite/releases/tag/v(\d+.\d+.\d+)"
+    url: https://github.com/aseprite/aseprite/tags
