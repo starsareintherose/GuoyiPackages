@@ -2,7 +2,7 @@
 
 _pkgname=telegrand
 pkgname=telegrand
-pkgver=r690.4988f7b
+pkgver=r696.80eff66
 pkgrel=1
 pkgdesc='A Telegram client for GNOME'
 arch=(x86_64)
