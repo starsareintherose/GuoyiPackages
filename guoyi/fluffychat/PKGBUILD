@@ -1,77 +1,50 @@
 # Maintainer: garionion <garionion at entr0py.de>
-# thanks to celogeek, sseneca, dr460nf1r3, dr460nf1r3 and AverytheFurry for pointing out multiple things
+# Contributor: kescherAUR
 
-pkgname=fluffychat
+pkgname=fluffychat-bin
+_pkgname=fluffychat
 pkgver=1.3.0
 pkgrel=1
 pkgdesc="Chat with your friends"
-arch=('x86_64' 'aarch64')
+arch=('x86_64'  'aarch64')
 url="https://fluffychat.im/"
 license=('AGPL3')
 depends=('gtk3' 'jsoncpp' 'libsecret')
-makedepends=('clang'
-             'ninja'
-             'cmake'
-             'git'
-             'unzip'
-             'flutter')
+makedepends=('unzip')
 optdepends=('libolm: E2E Encryption support')
-provides=("$pkgname")
-conflicts=("$pkgname")
-source=("fluffychat-v${pkgver}.tar.gz::https://gitlab.com/famedly/fluffychat/-/archive/v${pkgver}/fluffychat-v${pkgver}.tar.gz")
-sha256sums=('c1ef22f69aaaea09e8d0637d9cd854cd76b38840e823485783651b9b5f4ce991')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+source=("fluffychat-v${pkgver}_x86_64.tar.zst::https://proxy.git.entr0py.de/garionion/fluffychat/releases/download/tag:v${pkgver}/fluffychat-linux-x86.tar.zst")
+sha256sums=('f02408d31fadab5d490b02203343c3b6c694ae19e229192c765d22778368573e')
 
-prepare() {
-  #####
-  #thanks to @dreieck
-  _flutter_dir="${srcdir}/flutter"
-  PATH="${_flutter_dir}/bin:${PATH}"
-  export PATH
 
-  msg2 "Copying '/opt/flutter' to '${_flutter_dir}' ..."
-  cp -a /opt/flutter "${_flutter_dir}"
-  #####
-
-  flutter config --no-analytics
-  flutter config --enable-linux-desktop
-  
-  cd ${pkgname}-v$pkgver
-  flutter clean
-  flutter pub get
-}
-
-build() {
-  _flutter_dir="${srcdir}/flutter"
-  PATH="${_flutter_dir}/bin:${PATH}"
-  export PATH  
-
-  cd ${pkgname}-v$pkgver
-  flutter build linux --release --verbose
-}
-
-package() {  
+package() {
   # install
-  install -dm755 ${pkgdir}/opt
-  mv ${pkgname}-v$pkgver/build/linux/x64/release/bundle ${pkgdir}/opt/${pkgname}
-  
+
+  install -dm755 ${pkgdir}/opt/${_pkgname}/
+  mv ${_pkgname} ${pkgdir}/opt/${_pkgname}/
+  mv data ${pkgdir}/opt/${_pkgname}/
+  mv lib ${pkgdir}/opt/${_pkgname}/
+
+
   # link
   install -dm755 ${pkgdir}/usr/bin
-  ln -s /opt/${pkgname}/${pkgname} ${pkgdir}/usr/bin/${pkgname}
+  ln -s /opt/${_pkgname}/${_pkgname} ${pkgdir}/usr/bin/${_pkgname}
 
   # icon
-  install -Dm 644 ${pkgdir}/opt/${pkgname}/data/flutter_assets/assets/favicon.png ${pkgdir}/usr/share/pixmaps/${pkgname}.png
+  install -Dm 644 ${pkgdir}/opt/${_pkgname}/data/flutter_assets/assets/favicon.png ${pkgdir}/usr/share/pixmaps/${_pkgname}.png
 
   # desktop entry
 
   install -dm 755 "${pkgdir}/usr/share/applications"
-  cat > ${pkgdir}/usr/share/applications/${pkgname}.desktop << EOF
+  cat > ${pkgdir}/usr/share/applications/${_pkgname}.desktop << EOF
 [Desktop Entry]
 Type=Application
 Version=${pkgver}
 Name=FluffyChat
 Comment=Matrix Client. Chat with your friends
-Exec=${pkgname}
-Icon=${pkgname}
+Exec=/opt/${_pkgname}/${_pkgname}
+Icon=${_pkgname}
 Terminal=false
 EOF
 
