@@ -5,7 +5,7 @@
 # Contributor: Ariel AxionL <axionl at aosc dot io>
 
 pkgbase=wps-office-cn-classic
-pkgname=('wps-office-cn' 'wps-office-mime-cn' 'wps-office-mui-zh-cn')
+pkgname=('wps-office-cn-classic' 'wps-office-mime-cn-classic' 'wps-office-mui-zh-cn-classic')
 pkgver=11.1.0.10161
 pkgrel=1
 pkgdesc="Kingsoft Office (WPS Office) CN version - an office productivity suite"
