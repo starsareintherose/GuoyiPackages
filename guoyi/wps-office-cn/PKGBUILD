@@ -7,7 +7,7 @@
 pkgbase=wps-office-cn
 pkgname=('wps-office-mime-cn' 'wps-office-mui-zh-cn')
 pkgver=11.1.0.10920
-pkgrel=7
+pkgrel=8
 pkgdesc="Kingsoft Office (WPS Office) CN version - an office productivity suite"
 arch=('x86_64' 'aarch64')
 license=('custom')
