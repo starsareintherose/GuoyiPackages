@@ -1,36 +1,48 @@
+# Maintainer: Ouyang Jun <ouyangjun1999@gmail.com>
 # Maintainer: Astro Benzene <universebenzene at sina dot com>
-# Contributor: Felix Yan <felixonmars@archlinux.org>
-# Contributor: Ouyang Jun <ouyangjun1999@gmail.com>
+# Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Jove Yu <yushijun110 [at] gmail.com>
 # Contributor: Ariel AxionL <axionl at aosc dot io>
 
-pkgname=wps-office
+pkgbase=wps-office
+pkgname=('wps-office' 'wps-office-mime')
 pkgver=11.1.0.10920
-pkgrel=5
+#_pkgver=8372
+pkgrel=1
+#_pkgrel=1
 pkgdesc="Kingsoft Office (WPS Office) - an office productivity suite"
 arch=('x86_64')
 license=('custom')
-url="https://linux.wps.com"
+url="http://wps-community.org"
 options=('!emptydirs')
+#[[ "$CARCH" = "i686" ]] && _archext=x86 || _archext=x86_64
+#source_i686=("http://kdl.cc.ksosoft.com/wps-community/download/${pkgver##*.}/wps-office_${pkgver}_i386.deb"
+#            'add_no_kdialog_variable.patch')
+#source=("http://kdl.cc.ksosoft.com/wps-community/download/${pkgver##*.}/wps-office_${pkgver}_amd64.deb"
 source=("https://wdl1.pcfg.cache.wpscdn.com/wpsdl/wpsoffice/download/linux/${pkgver##*.}/wps-office_${pkgver}.XA_amd64.deb")
-#source_aarch64=("https://wdl1.cache.wps.cn/wps/download/ep/Linux2019/${pkgver##*.}/wps-office_${pkgver}_arm64.deb")
-sha1sums=('5748fec427c5c1dab2b356c2f058dcce22f15212')
-#sha1sums_aarch64=('21a13e2a82c07137c7c2e9a519a4ba68cd9d6920')
+#sha1sums_i686=('60b1c9e33ee6fc1edcefe40dc9ec529d4a668825'
+#               'dd8b5283ee17a88a3eb0531976abccd6e5e08c48')
+sha1sums=('2c08fd9b25f79e7c9bc3d934a189714686a3fd40')
 
 prepare() {
     bsdtar -xpf data.tar.xz
 
     cd "${srcdir}/usr/bin"
     sed -i 's|/opt/kingsoft/wps-office|/usr/lib|' *
-    [[ "$CARCH" = "aarch64" ]] && sed -i '2a export LD_PRELOAD=/usr/lib/libfreetype.so' *
+#   sed -i 's|/office6/${gApp}  ${gOptExt}|/office6/${gApp} -style gtk+ ${gOptExt}|' wps
+#   sed -i 's|/office6/${gApp} ${gOptExt}|/office6/${gApp} -style gtk+ ${gOptExt}|' wpp et
 
     cd "${srcdir}/usr/share/icons/hicolor"
+
     for _file in ./*; do
         if [ -e ${_file}/mimetypes/wps-office2019-etmain.png ]; then
             mkdir -p ${_file}/apps
             cp -p ${_file}/mimetypes/wps-office2019* ${_file}/apps
         fi
     done
+
+#   cd "${srcdir}"
+#   patch -Np1 -i "${srcdir}/fix_desktop_exec.patch"
 }
 
 package_wps-office() {
@@ -42,19 +54,18 @@ package_wps-office() {
                 'ttf-wps-fonts: Symbol fonts required by wps-office'
                 'ttf-ms-fonts: Microsft Fonts recommended for wps-office'
                 'wps-office-fonts: FZ TTF fonts provided by wps community'
-                'wps-office-mime-cn: Use mime files provided by Kingsoft'
+                'wps-office-mime: Use mime files provided by Kingsoft'
                 'wps-office-mui-zh-cn: zh_CN support for WPS Office')
-    install=wps-office-cn.install
-    conflicts=('kingsoft-office' 'wps-office-cn')
-    provides=('wps-office')
+    install=${pkgname}.install
+    conflicts=('kingsoft-office')
+#   cd wps-office_${pkgver}_$_archext
     cd "${srcdir}/opt/kingsoft/wps-office/"
 
     install -d "${pkgdir}/usr/lib"
     cp -r office6 "${pkgdir}/usr/lib"
-    [[ "$CARCH" = "aarch64" ]] && rm "${pkgdir}"/usr/lib/office6/libfreetype.so*
+#   chmod -x "${pkgdir}/usr/lib/office6/wpsoffice"
+#   ln -rTsf "${pkgdir}/usr/lib/office6"/{libcef.so,addons/cef/libcef.so}
     install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
-#    rm -r "${pkgdir}/usr/lib/office6/mui/en_US/resource/help"
-#    rm -r "${pkgdir}/usr/lib/office6/mui/zh_CN"
 
     install -d "${pkgdir}/usr/bin"
     cd "${srcdir}/usr/bin"
@@ -64,6 +75,7 @@ package_wps-office() {
 
     install -d "${pkgdir}/usr/share/applications"
     cp -r applications/* "${pkgdir}/usr/share/applications"
+#   rm "${pkgdir}/usr/share/applications/appurl.desktop"
 
     install -d "${pkgdir}/usr/share/desktop-directories"
     cp -r desktop-directories/* "${pkgdir}/usr/share/desktop-directories"
@@ -71,7 +83,22 @@ package_wps-office() {
     install -d "${pkgdir}/usr/share/icons"
     cp -r icons/* "${pkgdir}/usr/share/icons"
 
+#   cp -r "$srcdir/usr/share" "${pkgdir}/usr/"
+
     install -Dm644 -t "${pkgdir}/usr/share/fonts/wps-office" fonts/wps-office/*
 
     install -Dm644 -t "${pkgdir}/etc/xdg/menus/applications-merged" "${srcdir}/etc/xdg/menus/applications-merged/wps-office.menu"
+}
+
+package_wps-office-mime() {
+    pkgdesc="Mime files provided by Kingsoft Office (WPS Office)"
+    arch=('any')
+    depends=('shared-mime-info')
+    cd "${srcdir}/usr/share"
+
+    install -d "${pkgdir}/usr/share/mime"
+    cp -r mime/* "${pkgdir}/usr/share/mime"
+
+    cd "${srcdir}/opt/kingsoft/wps-office/"
+    install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
 }
