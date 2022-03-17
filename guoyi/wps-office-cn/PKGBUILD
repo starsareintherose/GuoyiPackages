@@ -4,8 +4,8 @@
 # Contributor: Jove Yu <yushijun110 [at] gmail.com>
 # Contributor: Ariel AxionL <axionl at aosc dot io>
 
-pkgbase=wps-office-cn
-pkgname=('wps-office-cn' 'wps-office-mime-cn' 'wps-office-mui-zh-cn')
+pkgbase=wps-office
+pkgname=('wps-office' 'wps-office-mime-cn' 'wps-office-mui-zh-cn')
 pkgver=11.1.0.10920
 pkgrel=5
 pkgdesc="Kingsoft Office (WPS Office) CN version - an office productivity suite"
