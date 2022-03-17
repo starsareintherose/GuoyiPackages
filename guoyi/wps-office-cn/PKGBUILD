@@ -34,7 +34,7 @@ prepare() {
     done
 }
 
-package_wps-office-cn() {
+package_wps-office() {
     depends=('fontconfig' 'xorg-mkfontdir' 'libxrender' 'gtk2' 'desktop-file-utils' 'shared-mime-info' 'xdg-utils' 'glu' 'openssl-1.0' 'sdl2' 'libpulse' 'hicolor-icon-theme' 'libxss' 'sqlite' 'libtool' 'libxslt' 'qt5-base')
     optdepends=('cups: for printing support'
                 'libjpeg-turbo: JPEG image codec support'
@@ -45,8 +45,8 @@ package_wps-office-cn() {
                 'wps-office-fonts: FZ TTF fonts provided by wps community'
                 'wps-office-mime-cn: Use mime files provided by Kingsoft'
                 'wps-office-mui-zh-cn: zh_CN support for WPS Office')
-    install=${pkgname}.install
-    conflicts=('kingsoft-office' 'wps-office')
+    install=wps-office-cn.install
+    conflicts=('kingsoft-office' 'wps-office-cn')
     provides=('wps-office')
     cd "${srcdir}/opt/kingsoft/wps-office/"
 
@@ -54,8 +54,8 @@ package_wps-office-cn() {
     cp -r office6 "${pkgdir}/usr/lib"
     [[ "$CARCH" = "aarch64" ]] && rm "${pkgdir}"/usr/lib/office6/libfreetype.so*
     install -Dm644 -t "${pkgdir}/usr/share/licenses/${pkgname}" office6/mui/default/*.html
-    rm -r "${pkgdir}/usr/lib/office6/mui/en_US/resource/help"
-    rm -r "${pkgdir}/usr/lib/office6/mui/zh_CN"
+#    rm -r "${pkgdir}/usr/lib/office6/mui/en_US/resource/help"
+#    rm -r "${pkgdir}/usr/lib/office6/mui/zh_CN"
 
     install -d "${pkgdir}/usr/bin"
     cd "${srcdir}/usr/bin"
