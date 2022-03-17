@@ -6,3 +6,4 @@ update_on:
   - source: regex
     url: https://linux.wps.cn/
     regex: <p class="banner_txt">(\d+.\d+.\d+.\d+)</p>
+time_limit_hours: 6
