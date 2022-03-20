@@ -29,34 +29,19 @@ optdepends=(
 )
 
 provides=('fastfetch')
-conflicts=("fastfetch")
-source=("git+https://github.com/LinusDierheimer/fastfetch.git")
-sha256sums=("SKIP")
+conflicts=("fastfetch-git")
 
-pkgver() {
-  cd "fastfetch/"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-}
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
+sha256sums=('316a6a86a7fcd5e521f10da1b4b766f964252d3a8324c77a80696c78cf5d6c01')
 
-build()
-{
-    cd "${srcdir}/fastfetch"
-    mkdir -p build/
-    cd build/
-    cmake ..
-    cmake --build .
+build() {
+  cmake -B build -S "$pkgname-$pkgver" \
+    -DCMAKE_BUILD_TYPE='None' \
+    -DCMAKE_INSTALL_PREFIX='/usr' \
+    -Wno-dev
+  cmake --build build --target "$pkgname"
 }
 
 package() {
-    cd ${srcdir}/fastfetch
-
-    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-    install -Dm755 "build/fastfetch" "${pkgdir}/usr/bin/fastfetch"
-    install -Dm755 "build/flashfetch" "${pkgdir}/usr/bin/flashfetch"
-    install -Dm644 "completions/bash" "${pkgdir}/usr/share/bash-completion/completions/fastfetch"
-
-    install -Dd "${pkgdir}/usr/share/fastfetch/presets/"
-    for file in presets/*; do
-      install -Dm644 "$file" "${pkgdir}/usr/share/fastfetch/presets/"
-    done
+  DESTDIR="$pkgdir" cmake --install build
 }
