@@ -7,3 +7,4 @@ pre_build: vcs_update
 update_on:
 - source: github
   github: LinusDierheimer/fastfetch
+  use_max_tag: true
