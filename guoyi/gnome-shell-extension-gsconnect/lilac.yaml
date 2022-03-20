@@ -3,6 +3,10 @@ maintainers:
   - github: starsareintherose
     email: starsareintherose@outlook.com
 update_on:
-  - source: github
-    github: andyholmes/gnome-shell-extension-gsconnect
-    use_latest_release: true
+#  - source: github
+#    github: andyholmes/gnome-shell-extension-gsconnect
+#    use_latest_release: true
+  - source: aur
+    aur: gnome-shell-extension-gsconnect
+pre_build: aur_pre_build
+post_build: aur_post_build
