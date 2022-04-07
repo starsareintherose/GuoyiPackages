@@ -27,7 +27,10 @@ build() {
   arch-meson --buildtype=plain build
   ninja -C build
 }
-
+check() {
+	cd "$srcdir/${pkgname}"
+	arch-meson check 
+}
 package() {
   cd $scrdir/$pkgname
   DESTDIR="$pkgdir" ninja -C build install
