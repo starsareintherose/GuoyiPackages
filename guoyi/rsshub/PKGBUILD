@@ -2,7 +2,7 @@
 # Contributor: YuutaW <i@yuuta.moe>
 
 pkgname=rsshub
-pkgver=r7196.e7558e88b
+pkgver=r7199.f97cdb291
 pkgrel=1
 pkgdesc="Everything is RSSible"
 # The built package bundles native Node.js extensions like OpenCC
