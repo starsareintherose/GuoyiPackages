@@ -19,8 +19,8 @@ source=('git+https://github.com/GSConnect/gnome-shell-extension-gsconnect.git#br
 sha256sums=('SKIP')
 _uuid='gsconnect@andyholmes.github.io'
 pkgver() {
-	cd "$srcdir/${pkgname}"
-	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g;s/rc.\.//'
+   cd "$srcdir/${pkgname}"
+   git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g;s/rc.\.//'
 }
 build() {
   cd $srcdir/$pkgname
@@ -28,10 +28,10 @@ build() {
   ninja -C build
 }
 check() {
-	cd "$srcdir/${pkgname}"
-	arch-meson check 
+  cd "$srcdir/${pkgname}"
+  arch-meson check 
 }
 package() {
-  cd $scrdir/$pkgname
+   cd "$srcdir/${pkgname}"
   DESTDIR="$pkgdir" ninja -C build install
 }
