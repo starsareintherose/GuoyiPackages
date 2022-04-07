@@ -1,0 +1,9 @@
+build_prefix: extra-x86_64
+maintainers:
+  - github: starsareintherose
+    email: starsareintherose@outlook.com
+pre_build_script: aur_pre_build(maintainers='mazharhussain')
+update_on:
+  - source: aur
+    aur: adw-gtk-theme
+    strip_release: true

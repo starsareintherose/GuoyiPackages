@@ -1,0 +1,21 @@
+# Maintainer: Dušan Simić <dusan.simic1810@gmail.com>
+
+pkgname=adw-gtk3
+pkgver=1.6
+pkgrel=1
+pkgdesc='The theme from libadwaita ported to GTK-3'
+arch=(any)
+url=https://github.com/lassekongo83/adw-gtk3
+license=(LGPL2)
+makedepends=(git meson sassc)
+source=("git+$url.git#tag=v$pkgver")
+md5sums=(SKIP)
+
+build() {
+	arch-meson "$pkgname" build
+	meson compile -C build
+}
+
+package() {
+	meson install -C build --destdir "$pkgdir"
+}
