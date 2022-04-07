@@ -7,3 +7,5 @@ update_on:
   - source: aur
     aur: adw-gtk-theme
     strip_release: true
+repo_depends:
+  - adw-gtk3
