@@ -5,26 +5,32 @@
 # Contributor: Christopher Krooß <didi2002 at web.de>
 
 pkgname=gnome-shell-extension-dash-to-dock
-_pkgname=dash-to-dock-extensions.gnome.org-v
-pkgver=71
-pkgrel=3
+_pkgname=dash-to-dock
+pkgver=72+1+gb695cee
+pkgrel=4
 pkgdesc="Move the dash out of the overview transforming it in a dock"
 arch=('any')
 url="https://micheleg.github.io/dash-to-dock/"
 license=('GPL')
 depends=('gnome-shell')
-makedepends=('sassc' 'intltool' 'gettext' 'git')
-source=("https://github.com/micheleg/dash-to-dock/archive/refs/tags/extensions.gnome.org-v${pkgver}.zip")
-sha256sums=('c35ea2d9fccbe0e16749343cfa72ea805f12fc89cd06c3713a06c7ecb6478827')
+makedepends=('intltool' 'gettext' 'git' 'sassc')
+_commit=b695cee218444eb733372903b02a5966e0318c79
+source=("git+https://github.com/micheleg/dash-to-dock.git#branch=ubuntu-dock")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "${srcdir}"/${_pkgname}
+  #git describe --tags | sed 's/^extensions\.gnome\.org-v//g' | sed 's/-/+/g'
+  git describe --tags | sed 's/^extensions\.gnome\.org-v//g' | sed 's/-/+/g' | sed 's/ubuntu+dock+//g' | sed 's/_ubuntu2//g'
+}
 
 build() {
-  cd "${srcdir}"/${_pkgname}${pkgver}
-  export SASS=sassc
+  cd "${srcdir}"/${_pkgname}
   make
 }
 
 package() {
-  cd "${srcdir}"/${_pkgname}${pkgver}
+  cd "${srcdir}"/${_pkgname}
   make DESTDIR="${pkgdir}" VERSION="${pkgver}" install
 }
 
