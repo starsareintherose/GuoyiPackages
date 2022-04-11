@@ -15,7 +15,7 @@ license=('GPL')
 depends=('gnome-shell')
 makedepends=('intltool' 'gettext' 'git' 'sassc')
 _commit=b695cee218444eb733372903b02a5966e0318c79
-source=("git+https://github.com/micheleg/dash-to-dock.git#branch=ubuntu-dock")
+source=("git+https://github.com/3v1n0/dash-to-dock.git#branch=locations-refactory")
 sha256sums=('SKIP')
 
 pkgver() {
