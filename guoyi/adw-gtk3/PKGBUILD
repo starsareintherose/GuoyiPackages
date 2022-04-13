@@ -1,8 +1,8 @@
 # Maintainer: Dušan Simić <dusan.simic1810@gmail.com>
 
 pkgname=adw-gtk3
-pkgver=1.6
-pkgrel=2
+pkgver=1.7
+pkgrel=1
 pkgdesc='The theme from libadwaita ported to GTK-3'
 arch=(any)
 url=https://github.com/lassekongo83/adw-gtk3
