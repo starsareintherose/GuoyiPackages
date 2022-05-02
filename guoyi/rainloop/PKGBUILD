@@ -1,7 +1,7 @@
 # Maintainer: Karel Louwagie <aur at karellouwagie dot net>
 pkgname=rainloop
 pkgver=1.16.0
-pkgrel=2
+pkgrel=3
 pkgdesc="Simple, modern & fast web-based email client"
 arch=("any")
 url="https://www.rainloop.net"
