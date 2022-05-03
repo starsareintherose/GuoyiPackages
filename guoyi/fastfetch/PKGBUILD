@@ -1,45 +1,36 @@
 # Maintainer: Linus Dierheimer <Linus@Dierheimer.de>
 pkgname=fastfetch
-pkgver=1.2.0
-pkgrel=6
-pkgdesc="Like neofetch, but much faster because written in c"
+pkgver=1.3.4
+pkgrel=1
+pkgdesc="Like Neofetch, but much faster because written in C"
 arch=('x86_64')
 url="https://github.com/LinusDierheimer/fastfetch"
 license=('MIT')
-depends=('glibc')
-makedepends=(
-  'git'
-  'cmake'
-  'pciutils'
-  'libxrandr' # Depends on libX11, which headers are also needed
-  'dconf'     # Depends on glib2, which headers are also needed
-  'wayland'
-  'sqlite'
-)
+depends=('bash')
+makedepends=('cmake' 'dbus' 'dconf' 'imagemagick' 'pciutils' 'libxcb' 'libxrandr'
+             'vulkan-headers' 'vulkan-icd-loader' 'wayland' 'xfconf' 'zlib')
 optdepends=(
-  "bash-completion"
-  "pciutils: GPU output"
-  "libx11: Basic resolution output"
-  "libxrandr: Multi monitor and refresh rate support for resolution output"
-  "wayland: Native wayland support for resolution output"
-  "glib2: Output for values that are only stored in GSettings"
-  "dconf: Output for values that are only stored in DConf"
-  "xfconf: XFWM theme + xfce-terminal font"
-  "sqlite: rpm package count"
+  'dbus: Needed for detecting current media player and song'
+  'dconf: Needed for values that are only stored in DConf + Fallback for GSettings'
+  'glib2: Output for values that are only stored in GSettings'
+  'imagemagick: Image output using sixel or kitty graphics protocol'
+  'libxrandr: Multi monitor support'
+  'pciutils: GPU output'
+  'vulkan-icd-loader: Fallback for GPU output'
+  'xfconf: Needed for XFWM theme and XFCE Terminal font'
+  'zlib: Faster image output when using kitty graphics protocol'
 )
-
-provides=('fastfetch')
-conflicts=("fastfetch-git")
-
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('04ca89a9f18364ce3eedeb7fc0ea5a9397247895c931a73e6e694b962207ce6a')
+sha256sums=('90287dbec10c8ccb8d409d1a5dfd73ab114d4f613d094888da9dfa8f2e30b8c7')
 
 build() {
   cmake -B build -S "$pkgname-$pkgver" \
     -DCMAKE_BUILD_TYPE='None' \
     -DCMAKE_INSTALL_PREFIX='/usr' \
+    -DENABLE_RPM='OFF' \
+    -DENABLE_IMAGEMAGICK6='OFF' \
     -Wno-dev
-  cmake --build build --target "$pkgname"
+  cmake --build build
 }
 
 package() {
