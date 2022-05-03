@@ -1,7 +1,7 @@
 pkgname=trojan-go
 _pkgname=trojan-go
 pkgver=0.10.6
-pkgrel=1
+pkgrel=2
 makedepends=(go hugo)
 arch=(x86_64)
 url="https://github.com/p4gefau1t/trojan-go"
