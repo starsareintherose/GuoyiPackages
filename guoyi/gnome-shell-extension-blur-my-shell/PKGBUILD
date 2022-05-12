@@ -13,21 +13,27 @@ conflicts=("$pkgname-git")
 source=("https://github.com/aunetx/blur-my-shell/archive/refs/tags/v$pkgver.zip")
 sha256sums=('19115d0f45a9c924ded4f3848e9dc8497fd17521a4f547bc84e6702d6d16eb75')
 build() {
-  cd "$srcdir/$_pkgname-$pkgver"
+  cd "${_pkgname}-${pkgver}"
   make
+  cd build && unzip *.zip
 }
 
 package() {
-  cd "$srcdir/$_pkgname-$pkgver"
-  _uuid="${_pkgname}@aunetx"
-  _schema="org.gnome.shell.extensions.$_pkgname.gschema.xml"
+  cd "${_pkgname}-${pkgver}/build"
+  local _uuid=$(grep -Po '(?<="uuid": ")[^"]*' metadata.json)
+  local _destdir="${pkgdir}/usr/share/gnome-shell/extensions/${_uuid}"
 
-  install -d "$pkgdir/usr/share/gnome-shell/extensions/$_uuid"
-  cp -r build/* "$pkgdir/usr/share/gnome-shell/extensions/$_uuid/"
+  install -Dm644 -t "${_destdir}" metadata.json *.js *.css
+  install -Dm644 -t "${_destdir}/components" components/*.js
+  install -Dm644 -t "${_destdir}/conveniences" conveniences/*.js
+  install -Dm644 -t "${_destdir}/preferences" preferences/*.js
+  install -Dm644 -t "${_destdir}/ui" ui/*.ui
+  cp -r --no-preserve=ownership,mode icons "${_destdir}"
 
-  install -d "$pkgdir/usr/share/glib-2.0/schemas/"
-  ln -s "/usr/share/gnome-shell/extensions/$_uuid/schemas/$_schema" \
-    "$pkgdir/usr/share/glib-2.0/schemas/"
-
-  install -Dm644 LICENSE -t "$pkgdir/usr/share/licenses/${pkgname}"
+  install -Dm644 -t "${pkgdir}/usr/share/glib-2.0/schemas/" schemas/*.xml
+  cd locale
+  for locale in */
+    do
+      install -Dm644 -t "${pkgdir}/usr/share/locale/${locale}/LC_MESSAGES" "${locale}/LC_MESSAGES"/*.mo
+    done
 }
