@@ -1,7 +1,7 @@
 _pkgname=vim-pandoc
 pkgname=vim-pandoc
-pkgver=1631042682
-pkgrel=3
+pkgver=1652946632
+pkgrel=1
 pkgdesc="plugin for writing and editing documents in Pandoc's extended markdown"
 arch=('any')
 #url='http://www.vim.org/scripts/script.php?script_id=3730'
