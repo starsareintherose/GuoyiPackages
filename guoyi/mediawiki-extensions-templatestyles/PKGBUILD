@@ -3,7 +3,7 @@ pkgname=mediawiki-extensions-templatestyles
 _pkgname=mediawiki-extensions-TemplateStyles
 _pkg=TemplateStyles
 pkgver=1_37
-pkgrel=2
+pkgrel=3
 pkgdesc="introduces a templatestyles tag mediawiki"
 arch=('x86_64')
 url="https://github.com/wikimedia/${_pkgname}"
@@ -16,6 +16,6 @@ noextract=()
 sha256sums=('SKIP')
 
 package() {
-  install -dm755 "$pkgdir"/usr/share/webapp/mediawiki/extensions/${_pkg}
-  mv "$srcdir"/"$_pkgname"/* "$pkgdir"/usr/share/webapp/mediawiki/extensions/${_pkg}/
+  install -dm755 "$pkgdir"/usr/share/webapps/mediawiki/extensions/${_pkg}
+  mv "$srcdir"/"$_pkgname"/* "$pkgdir"/usr/share/webapps/mediawiki/extensions/${_pkg}/
 }
