@@ -2,7 +2,7 @@
 pkgname=gnome-shell-extension-blur-my-shell
 _pkgname=blur-my-shell
 pkgver=37
-pkgrel=1
+pkgrel=2
 pkgdesc="Extension that adds a blur look to different parts of the GNOME Shell"
 arch=('any')
 url="https://github.com/aunetx/blur-my-shell"
@@ -22,13 +22,14 @@ package() {
   cd "${_pkgname}-${pkgver}/build"
   local _uuid=$(grep -Po '(?<="uuid": ")[^"]*' metadata.json)
   local _destdir="${pkgdir}/usr/share/gnome-shell/extensions/${_uuid}"
-
+  install -Dm644 -t "${_destdir}/effects" effects/*.{js,glsl}
   install -Dm644 -t "${_destdir}" metadata.json *.js *.css
   install -Dm644 -t "${_destdir}/components" components/*.js
   install -Dm644 -t "${_destdir}/conveniences" conveniences/*.js
   install -Dm644 -t "${_destdir}/preferences" preferences/*.js
   install -Dm644 -t "${_destdir}/ui" ui/*.ui
   cp -r --no-preserve=ownership,mode icons "${_destdir}"
+  
 
   install -Dm644 -t "${pkgdir}/usr/share/glib-2.0/schemas/" schemas/*.xml
   cd locale
