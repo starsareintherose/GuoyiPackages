@@ -15,6 +15,6 @@ noextract=()
 sha256sums=('SKIP')
 
 package() {
-  install -dm755 "$pkgdir"/usr/share/webapp/mediawiki/extensions/${_pkg}
-  mv "$srcdir"/"$_pkgname"/* "$pkgdir"/usr/share/webapp/mediawiki/extensions/${_pkg}/
+  install -dm755 "$pkgdir"/usr/share/webapps/mediawiki/extensions/${_pkg}
+  mv "$srcdir"/"$_pkgname"/* "$pkgdir"/usr/share/webapps/mediawiki/extensions/${_pkg}/
 }
