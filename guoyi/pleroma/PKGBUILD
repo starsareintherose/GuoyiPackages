@@ -2,7 +2,7 @@
 # Contributor: Faye Jackson <justalittleepsilon ant gmail dot com>
 
 pkgname=pleroma
-pkgver=2.4.2
+pkgver=2.4.3
 pkgrel=1
 pkgdesc='A microblogging server software that can federate (= exchange messages with) other servers that support ActivityPub.'
 url='https://pleroma.social/'
