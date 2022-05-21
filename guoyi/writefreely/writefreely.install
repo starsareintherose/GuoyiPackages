@@ -1,0 +1,10 @@
+post_install() {
+    echo ""
+    echo "==> Configure: cd /usr/share/writefreely && writefreely --config"
+    echo ""
+    echo "==> Generate Key: cd /usr/share/writefreely && writefreely --gen-keys"
+    echo ""
+    echo "==> Create User: cd /usr/share/writefreely && writefreely --create-admin user:passwd"
+    echo ""
+
+    }
