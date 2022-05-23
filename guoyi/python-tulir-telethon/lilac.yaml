@@ -1,0 +1,12 @@
+maintainers:
+  - github: starsareintherose
+    email: starsareintherose@outlook.com
+build_prefix: extra-x86_64
+pre_build_script: aur_pre_build(maintainers='BrainDamage')
+update_on: python-tulir-telethon
+  - source: aur
+    aur: forticlient-vpn
+    strip_release: true
+  - alias: python
+  - alias: python-pyaes
+  - alias: python-rsa
