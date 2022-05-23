@@ -3,7 +3,7 @@
 
 pkgname="dendrite"
 pkgver=0.8.5
-pkgrel=5
+pkgrel=6
 pkgdesc="A second-generation Matrix homeserver written in Go"
 url="https://matrix-org.github.io/dendrite/"
 license=("Apache")
