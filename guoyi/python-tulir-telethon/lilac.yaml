@@ -10,5 +10,3 @@ update_on:
     aur: python-tulir-telethon
     strip_release: true
   - alias: python
-  - alias: python-pyaes
-  - alias: python-rsa
