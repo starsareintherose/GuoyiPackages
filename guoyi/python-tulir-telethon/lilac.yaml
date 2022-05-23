@@ -7,7 +7,7 @@ pre_build: aur_pre_build
 post_build: aur_post_build
 update_on: python-tulir-telethon
   - source: aur
-    aur: forticlient-vpn
+    aur: python-tulir-telethon
     strip_release: true
   - alias: python
   - alias: python-pyaes
