@@ -7,3 +7,7 @@ update_on:
     github: mautrix/telegram
     use_max_tag: true
   - alias: python
+repo_depends:
+  - python-magic-ahupp
+  - python-mautrix
+  - python-tulir-telethon
