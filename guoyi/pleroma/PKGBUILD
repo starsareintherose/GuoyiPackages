@@ -3,7 +3,7 @@
 
 pkgname=pleroma
 pkgver=2.4.3
-pkgrel=13
+pkgrel=14
 pkgdesc='A microblogging server software that can federate (= exchange messages with) other servers that support ActivityPub.'
 url='https://pleroma.social/'
 license=('AGPL' 'CCPL:cc-by-4.0' 'CCPL:cc-by-sa-4.0')
