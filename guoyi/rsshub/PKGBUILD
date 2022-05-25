@@ -9,7 +9,7 @@ pkgdesc="Everything is RSSible"
 arch=('x86_64')
 url="https://rsshub.app/"
 license=('MIT')
-depends=('nodejs')
+depends=('nodejs-lts-gallium')
 makedepends=('npm' 'node-gyp' 'git')
 optdepends=(
   'chromium: for routes using a headless browser'
