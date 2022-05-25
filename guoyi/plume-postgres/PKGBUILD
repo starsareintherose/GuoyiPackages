@@ -17,7 +17,7 @@ md5sums=('571a18ad2fabdb5a130dbdf446cb334d'
          '939c960f67f2b859b48f96223bd6b74e'
          '545792acab035885a7cd479f43cde695'
          'ebfcfb05844a25ff281317af9b64f8bb')
-
+install="$_pkgname.install"
 package() {
 	cd $srcdir/bin
 	chmod +x *
