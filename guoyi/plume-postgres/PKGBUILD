@@ -8,6 +8,7 @@ arch=(x86_64)
 url='https://joinplu.me/'
 license=(AGPL3)
 provides=('plume')
+conflicts=('plume-git' 'plume' 'plume-bin' 'plume-sqlite')
 depends=('gettext' 'openssl' 'pkgconf' 'postgresql')
 source=("$pkgname-$pkgver::https://github.com/Plume-org/Plume/releases/download/${pkgver}/plume-postgres.tar.gz"
 	".env.sample"
