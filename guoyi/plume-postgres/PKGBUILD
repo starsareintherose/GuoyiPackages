@@ -2,7 +2,7 @@
 pkgname=plume-postgres
 _pkgname=plume
 pkgver=0.7.2
-pkgrel=2
+pkgrel=3
 pkgdesc='Federated blogging application'
 arch=(x86_64)
 url='https://joinplu.me/'
