@@ -2,7 +2,7 @@
 
 pkgname=python-mautrix
 pkgver=0.16.4
-pkgrel=11
+pkgrel=12
 pkgdesc="A Python 3 asyncio Matrix framework."
 url="https://github.com/mautrix/python/"
 depends=('python>=3.6')
