@@ -2,7 +2,7 @@
 pkgname=bioarchlinux-packages
 _pkgname=guoyi-packages
 pkgver=r112.399bc73
-pkgrel=1
+pkgrel=2
 pkgdesc="build status site"
 arch=('x86_64')
 url="https://github.com/BioArchLinux/bioarchlinux-packages"
@@ -20,14 +20,16 @@ pkgver() {
 }
 prepare() {
   cd $srcdir/"$pkgname"/src
-  sed -i 's@home/bio/Packages@usr/share/lilac/Packages@g' main.rs
-  sed -i 's@/home/bio/@/home/guoyi@g' main.rs
+  sed -i 's@Packages/BioArchLinux@GuoyiPackages/guoyi@g' main.rs
   sed -i 's@bio@guoyi@g' main.rs
+#  sed -i 's@bio@guoyi@g' main.rs
   cd $srcdir/$pkgname/html
   sed -i 's@bioarchlinux@guoyi@g' current.html
   sed -i 's@https://github.com/BioArchLinux/Packages@https://github.com/starsareintherose/GuoyiPackages@g' logs.html
   sed -i 's@https://build.bioarchlinux.org@https://build.malacology.net@g' logs.html
   sed -i 's@bioarchlinux@guoyi@g' logs.html
+  sed -i 's@BioArchLinux@guoyi@g' index.html
+  sed -i 's@build.bioarchlinux.org@build.malacology.net@g' index.html
 }
 build() {
   cd "$pkgname"/src
