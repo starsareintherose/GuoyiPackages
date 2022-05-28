@@ -1,5 +1,5 @@
 #!/bin/bash
-rm -rf /home/guoyi/GuoyiPackages/guoyi/*/src
-python /home/guoyi/GuoyiPackages/lilac-cleaner -f
-python /home/guoyi/GuoyiPackages/repocleaner
-chown -R guoyi:pkg /home/guoyi/GuoyiPackages
+rm -rf /usr/share/lilac/GuoyiPackages/guoyi/*/src
+python /usr/share/lilac/GuoyiPackages/lilac-cleaner -f
+python /usr/share/lilac/GuoyiPackages/repocleaner
+chown -R guoyi:pkg /usr/share/lilac/GuoyiPackages
