@@ -2,7 +2,7 @@
 pkgname=bioarchlinux-packages
 _pkgname=guoyi-packages
 pkgver=r110.13a724b
-pkgrel=1
+pkgrel=2
 pkgdesc="build status site"
 arch=('x86_64')
 url="https://github.com/BioArchLinux/bioarchlinux-packages"
