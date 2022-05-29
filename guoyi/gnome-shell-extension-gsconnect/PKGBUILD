@@ -1,7 +1,7 @@
 # Maintainer: Guillaume Hayot <ghayot@postblue.info>
 
 pkgname=gnome-shell-extension-gsconnect
-pkgver=50.r10.g80c3d156
+pkgver=50.r11.g5ef1979a
 pkgrel=1
 pkgdesc="KDE Connect implementation with GNOME Shell integration"
 arch=('any')
