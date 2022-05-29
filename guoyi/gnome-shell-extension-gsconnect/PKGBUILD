@@ -15,7 +15,7 @@ optdepends=(
   'gsound: Themed sound effects'
   'python-nautilus: Nautilus integration'
 )
-source=('git+https://github.com/GSConnect/gnome-shell-extension-gsconnect.git#branch=master')
+source=('git+https://github.com/GSConnect/gnome-shell-extension-gsconnect.git#branch=main')
 sha256sums=('SKIP')
 _uuid='gsconnect@andyholmes.github.io'
 pkgver() {
