@@ -8,7 +8,6 @@ arch=('any')
 url="https://github.com/gruvbox-community/gruvbox"
 license=('MIT')
 depends=('vim')
-groups=('vim-plugins')
 provides=('vim-gruvbox')
 conflicts=('vim-gruvbox')
 source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/gruvbox-community/gruvbox/archive/v${pkgver}.tar.gz")
