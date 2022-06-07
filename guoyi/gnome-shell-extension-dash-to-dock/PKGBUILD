@@ -6,8 +6,8 @@
 
 pkgname=gnome-shell-extension-dash-to-dock
 _pkgname=dash-to-dock
-pkgver=72_ubuntu5
-pkgrel=2
+pkgver=72_ubuntu5+5+g56caba0
+pkgrel=1
 pkgdesc="Move the dash out of the overview transforming it in a dock"
 arch=('any')
 url="https://micheleg.github.io/dash-to-dock/"
