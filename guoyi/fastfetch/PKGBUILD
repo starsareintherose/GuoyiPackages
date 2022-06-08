@@ -1,6 +1,6 @@
 # Maintainer: Linus Dierheimer <Linus@Dierheimer.de>
 pkgname=fastfetch
-pkgver=1.5.2
+pkgver=1.5.3
 pkgrel=1
 pkgdesc="Like Neofetch, but much faster because written in C"
 arch=('x86_64')
@@ -21,7 +21,7 @@ optdepends=(
   'zlib: Faster image output when using kitty graphics protocol'
 )
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('7ff76097bcf2372d1c5ceaa851fcb75977cffcc88db4a690768b0ae0dcb80f95')
+sha256sums=('6223e88b7f0bdcbf66c6a9bc67ae8feb15ebb1f72942256b4da5310ae01b1a14')
 
 build() {
   cmake -B build -S "$pkgname-$pkgver" \
