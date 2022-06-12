@@ -1,0 +1,9 @@
+build_prefix: extra-x86_64
+maintainers:
+  - github: starsareintherose
+    email: git@malacology.net
+update_on:
+  - source: gitlab
+    gitlab: World/amberol
+    host: gitlab.gnome.org
+    use_max_tag: true
