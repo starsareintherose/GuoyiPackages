@@ -3,7 +3,7 @@
 
 pkgname=rsshub
 pkgver=r7560.1d60f41fd
-pkgrel=2
+pkgrel=3
 pkgdesc="Everything is RSSible"
 # The built package bundles native Node.js extensions like OpenCC
 arch=('x86_64')
