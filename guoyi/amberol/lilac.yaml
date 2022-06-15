@@ -7,4 +7,4 @@ update_on:
     gitlab: World/amberol
     host: gitlab.gnome.org
     use_max_tag: true
-time_limit_hours: 6
+time_limit_hours: 12
