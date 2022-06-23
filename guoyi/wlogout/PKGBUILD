@@ -1,7 +1,7 @@
 # Maintainer: Haden Collins <collinshaden@gmail.com>
 pkgname='wlogout'
 pkgver=1.1.1
-pkgrel=3
+pkgrel=4
 pkgdesc="Logout menu for wayland"
 arch=('x86_64')
 license=("MIT")
