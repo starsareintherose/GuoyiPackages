@@ -2,6 +2,8 @@ maintainers:
   - github: starsareintherose
     email: git@malacology.net
 build_prefix: extra-x86_64
+repo_depends:
+  - wayfire
 update_on:
   - source: github
     github: WayfireWM/wf-shell
