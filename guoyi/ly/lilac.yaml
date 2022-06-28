@@ -4,6 +4,6 @@ maintainers:
 build_prefix: extra-x86_64
 update_on:
   - source: github
-    github: fairyglade/lyi
+    github: nullgemm/ly
     use_max_tag: true
     prefix: 'v'
