@@ -1,21 +1,21 @@
 # Maintainer: fairyglade <fairyglade@mailbox.org>
 pkgname=ly
 pkgver=0.5.3
-pkgrel=0
+pkgrel=1
 pkgdesc="TUI display manager"
 arch=('i686' 'x86_64' 'aarch64')
-url="https://github.com/fairyglade/ly"
+url="https://github.com/nullgemm/ly"
 license=('custom:WTFPL')
 makedepends=('git')
 depends=('pam')
 optdepends=('xorg-xauth')
 conflicts=('ly-git' 'python-ly-git')
 backup=('etc/ly/config.ini')
-source=("git+https://github.com/fairyglade/${pkgname}.git#tag=v${pkgver}"
-        "git+https://github.com/fairyglade/argoat.git"
-        "git+https://github.com/fairyglade/configator.git"
-        "git+https://github.com/fairyglade/dragonfail.git"
-        "git+https://github.com/fairyglade/termbox_next.git")
+source=("git+https://github.com/nullgemm/${pkgname}.git#tag=v${pkgver}"
+        "git+https://github.com/nullgemm/argoat.git"
+        "git+https://github.com/nullgemm/configator.git"
+        "git+https://github.com/nullgemm/dragonfail.git"
+        "git+https://github.com/nullgemm/termbox_next.git")
 sha256sums=('SKIP'
             'SKIP'
             'SKIP'
