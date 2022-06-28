@@ -1,12 +1,12 @@
 # Maintainer: fairyglade <fairyglade@mailbox.org>
 pkgname=ly
 pkgver=0.5.3
-pkgrel=1
+pkgrel=2
 pkgdesc="TUI display manager"
 arch=('i686' 'x86_64' 'aarch64')
 url="https://github.com/nullgemm/ly"
 license=('custom:WTFPL')
-makedepends=('git')
+makedepends=('git' 'libxcb')
 depends=('pam')
 optdepends=('xorg-xauth')
 conflicts=('ly-git' 'python-ly-git')
