@@ -7,7 +7,7 @@ update_on:
     github: foxcpp/maddy
     use_max_tag: true
     prefix: 'v'
-  - source: aur
-    aur: maddy
-pre_build: aur_pre_build
-post_build: aur_post_build
+#  - source: aur
+#    aur: maddy
+#pre_build: aur_pre_build
+#post_build: aur_post_build

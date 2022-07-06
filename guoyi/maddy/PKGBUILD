@@ -45,17 +45,6 @@ build() {
     chmod -R +w ${GOPATH}
 }
 
-check() {
-    export GOPATH="$PWD/gopath"
-    cd "${srcdir}/maddy-${pkgver}-src"
-
-    go test ./...
-
-    cd tests/
-    ./run.sh
-
-    chmod -R +w ${GOPATH}
-}
 
 package() {
     export GOPATH="$PWD/gopath"
