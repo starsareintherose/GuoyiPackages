@@ -6,6 +6,3 @@ update_on:
   - source: github
     github: xolox/python-coloredlogs
     use_max_tag: true
-repo_depends:
-  - python-sphinx
-  - python-humanfriendly
